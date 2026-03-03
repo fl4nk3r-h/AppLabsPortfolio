@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 // ─── PALETTE ─────────────────────────────────────────────────────────────────
 const ACCENT = "#008080";
-const ACCENT_HOVER = "#7a004b";
+const ACCENT_HOVER = "#006363ff";
 
 const light = {
   bg:        "#ffffff",
@@ -17,8 +17,8 @@ const light = {
   navBg:     "rgba(255,255,255,0.92)",
 };
 const dark = {
-  bg:        "#0f0f0f",
-  bg2:       "#161616",
+  bg:        "#131313ff",
+  bg2:       "#111111ff",
   bg3:       "#1e1e1e",
   text:      "#f0f0f0",
   textMuted: "#999999",
@@ -79,15 +79,25 @@ const CLUB = {
     ],
   },
   team: [
-    { name: "Aryan Mehta",  role: "President",      img: "https://i.pravatar.cc/150?img=11", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Priya Nair",   role: "VP Engineering",  img: "https://i.pravatar.cc/150?img=47", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Rohan Das",    role: "Design Lead",     img: "https://i.pravatar.cc/150?img=12", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Sneha Iyer",   role: "Mobile Lead",     img: "https://i.pravatar.cc/150?img=48", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Karan Patel",  role: "Web Lead",        img: "https://i.pravatar.cc/150?img=13", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Divya Sharma", role: "Events Head",     img: "https://i.pravatar.cc/150?img=49", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Mihir Joshi",  role: "Core Member",     img: "https://i.pravatar.cc/150?img=14", github: "#", linkedin: "#", twitter: "#" },
-    { name: "Tanvi Rao",    role: "Core Member",     img: "https://i.pravatar.cc/150?img=50", github: "#", linkedin: "#", twitter: "#" },
-  ],
+  // Leads
+  { name: "Aryan Mehta",  role: "President",     tier: "lead",    quote: "Build things that matter.", img: "https://i.pravatar.cc/150?img=11", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Priya Nair",   role: "VP Engineering", tier: "lead",    quote: "Ship fast, learn faster.", img: "https://i.pravatar.cc/150?img=47", github: "#", linkedin: "#", twitter: "#" },
+  // Sub-leads
+  { name: "Rohan Das",    role: "Design Lead",    tier: "sublead", quote: "Design is how it works.", img: "https://i.pravatar.cc/150?img=12", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Sneha Iyer",   role: "Mobile Lead",    tier: "sublead", quote: "Every app starts with an idea.", img: "https://i.pravatar.cc/150?img=48", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Karan Patel",  role: "Web Lead",       tier: "sublead", quote: "The web is our playground.", img: "https://i.pravatar.cc/150?img=13", github: "#", linkedin: "#", twitter: "#" },
+  // Core
+  { name: "Divya Sharma", role: "Events Head",    tier: "core",    quote: "Community is everything.", img: "https://i.pravatar.cc/150?img=49", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Mihir Joshi",  role: "Core Member",    tier: "core",    quote: "Always be building.", img: "https://i.pravatar.cc/150?img=14", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Tanvi Rao",    role: "Core Member",    tier: "core",    quote: "Code is poetry.", img: "https://i.pravatar.cc/150?img=50", github: "#", linkedin: "#", twitter: "#" },
+  // Volunteers
+  { name: "Aditya Sen",   role: "Volunteer",      tier: "volunteer", quote: "Here to learn and contribute.", img: "https://i.pravatar.cc/150?img=15", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Meera Pillai", role: "Volunteer",      tier: "volunteer", quote: "Excited to be part of this.", img: "https://i.pravatar.cc/150?img=51", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Zaid Khan",    role: "Volunteer",      tier: "volunteer", quote: "Building my first app here.", img: "https://i.pravatar.cc/150?img=16", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Nisha Verma",  role: "Volunteer",      tier: "volunteer", quote: "Design thinking advocate.", img: "https://i.pravatar.cc/150?img=52", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Ravi Teja",    role: "Volunteer",      tier: "volunteer", quote: "Turning coffee into code.", img: "https://i.pravatar.cc/150?img=17", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Pooja Menon",  role: "Volunteer",      tier: "volunteer", quote: "Every commit counts.", img: "https://i.pravatar.cc/150?img=53", github: "#", linkedin: "#", twitter: "#" },
+],
   scriptUrl: "https://script.google.com/macros/s/AKfycbzh3rd1MlFs9LmQ9b1Ny8yleboDsEsGxrjc-Ws_OrOsSzp_05exF5PM2eXXksRpyIWlcQ/exec",
   contact: {
     email: "applabs@iiitkottayam.ac.in",
@@ -234,7 +244,12 @@ export default function ClubPortfolio() {
           .two-col   { grid-template-columns: 1fr !important; }
           .four-col  { grid-template-columns: 1fr 1fr !important; }
           .pad-sec   { padding: 64px 24px !important; }
-          .pad-hero  { padding: 80px 24px 64px !important; }
+          .pad-hero  { padding: 50px 24px 70px !important; }
+          .team-card-name { font-size: 11px !important; }
+          .team-card-role { font-size: 10px !important; }
+          .team-card-quote { display: none !important; }
+          .team-grid { grid-template-columns: repeat(auto-fit, min(160px, 40vw)) !important; }
+          .join-form { padding: 36px 25px !important; }
         }
       `}</style>
 
@@ -296,7 +311,7 @@ export default function ClubPortfolio() {
         <section ref={refs.home} style={{ paddingTop: "58px" }}>
 
           {/* Hero */}
-          <div className="pad-hero" style={{ maxWidth: "1100px", margin: "0 auto", padding: "110px 48px 96px" }}>
+          <div className="pad-hero" style={{ maxWidth: "1100px", margin: "0 auto", padding: "70px 48px 96px" }}>
             <div style={{ maxWidth: "640px" }}>
               <div className="anim d1" style={{
                 display: "inline-flex", alignItems: "center", gap: "8px",
@@ -345,15 +360,19 @@ export default function ClubPortfolio() {
           <Divider d={d} />
 
           {/* Stats */}
-          <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 48px" }}>
-            <div className="four-col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+          <div style={{ borderTop: `1px solid ${d.border}`, borderLeft: `1px solid ${d.border}` }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }} className="four-col">
               {[
                 { num: "n+", label: "Active Members" },
                 { num: "x",  label: "Apps Shipped" },
-                { num: "y",   label: "Hackathon Wins" },
-                { num: "z",   label: "Years Running" },
+                { num: "y",  label: "Hackathon Wins" },
+                { num: "z",  label: "Years Running" },
               ].map((s, i) => (
-                <div key={i} style={{ padding: "36px 32px", borderRight: i < 3 ? `1px solid ${d.border}` : "none" }}>
+                <div key={i} style={{
+                  padding: "36px 32px",
+                  borderRight: `1px solid ${d.border}`,
+                  borderBottom: `1px solid ${d.border}`,
+                }}>
                   <div style={{ fontWeight: 700, fontSize: "2rem", color: d.accent, letterSpacing: "-0.02em", marginBottom: "4px" }}>{s.num}</div>
                   <div style={{ fontSize: "13px", color: d.textMuted }}>{s.label}</div>
                 </div>
@@ -388,11 +407,11 @@ export default function ClubPortfolio() {
             <SectionTitle label="Focus Areas" title="What We Do" d={d} />
             <div style={{
               display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1px", background: d.border, borderRadius: "8px",
-              overflow: "hidden", border: `1px solid ${d.border}`,
+              gap: "0px", background: d.border, borderRadius: "8px",
+              backgroundColor: d.bg,
             }}>
               {CLUB.whatWeDo.map((item, i) => (
-                <div key={i} style={{ background: d.bg, padding: "34px 30px", transition: "background 0.15s" }}
+                <div key={i} style={{ background: d.bg, padding: "34px 30px",  border: `1px solid ${d.border}`, transition: "background 0.15s" }}
                   onMouseEnter={e => e.currentTarget.style.background = d.bg2}
                   onMouseLeave={e => e.currentTarget.style.background = d.bg}
                 >
@@ -455,39 +474,106 @@ export default function ClubPortfolio() {
             </div>
           </section>
           <Divider d={d} />
+        
         </div>
-
         {/* ══════════════ TEAM ══════════════ */}
         <section ref={refs.team}>
           <div className="pad-sec" style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 48px" }}>
             <SectionTitle label="The People" title="Our Team" d={d} />
-            <div style={{
-              display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))",
-              gap: "1px", background: d.border, borderRadius: "8px",
-              overflow: "hidden", border: `1px solid ${d.border}`,
-            }}>
-              {CLUB.team.map((member, i) => (
-                <div key={i} style={{ background: d.bg, padding: "30px 24px", transition: "background 0.15s" }}
-                  onMouseEnter={e => e.currentTarget.style.background = d.bg2}
-                  onMouseLeave={e => e.currentTarget.style.background = d.bg}
-                >
-                  <img src={member.img} alt={member.name} style={{ width: "58px", height: "58px", borderRadius: "50%", objectFit: "cover", border: `2px solid ${d.border}`, marginBottom: "12px", display: "block" }} />
-                  <div style={{ fontWeight: 600, fontSize: "14px", marginBottom: "3px", color: d.text }}>{member.name}</div>
-                  <div style={{ fontSize: "12px", color: d.accent, fontWeight: 500, marginBottom: "14px" }}>{member.role}</div>
-                  <div style={{ display: "flex", gap: "10px" }}>
-                    {[{ icon: <GithubIcon />, href: member.github }, { icon: <LinkedinIcon />, href: member.linkedin }, { icon: <TwitterIcon />, href: member.twitter }].map((s, j) => (
-                      <a key={j} href={s.href} style={{ color: d.textFaint, transition: "color 0.15s", display: "flex" }}
-                        onMouseEnter={e => e.currentTarget.style.color = d.text}
-                        onMouseLeave={e => e.currentTarget.style.color = d.textFaint}
-                      >{s.icon}</a>
+
+            {[
+              { tier: "lead",      label: "Leads",        },
+              { tier: "sublead",   label: "Sub-Leads",    },
+              { tier: "core",      label: "Core Members", },
+              { tier: "volunteer", label: "Volunteers",   },
+            ].map(({ tier, label }) => {
+              const members = CLUB.team.filter(m => m.tier === tier);
+              const isLead      = tier === "lead";
+              const isVolunteer = tier === "volunteer";
+
+              return (
+                <div key={tier} style={{ marginBottom: "52px" }}>
+                  <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: d.textFaint, marginBottom: "20px" }}>{label}</div>
+                  <div className="team-grid" style={{
+                    display: "grid",
+                    gridTemplateColumns: isLead
+                  ? "repeat(2, min(280px, 45vw))"
+                  : `repeat(auto-fit, ${isVolunteer ? "min(160px, 40vw)" : "min(200px, 45vw)"})`,
+                    gap: "10px",
+                    background: d.border,
+                    overflow: "hidden",
+                    backgroundColor: d.bg,
+                    
+                  }}>
+                    {members.map((member, i) => (
+                      <div key={i}
+                        style={{
+                          background: d.bg,
+                          border: `1px solid ${d.border}`,
+                          padding: isLead ? "28px" : isVolunteer ? "16px" : "22px",
+                          transition: "background 0.15s",
+                          aspectRatio: "1",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          textAlign: "center",
+                          justifyContent: "center",
+                          overflow: "hidden",
+
+                        }}
+                        onMouseEnter={e => e.currentTarget.style.background = d.bg2}
+                        onMouseLeave={e => e.currentTarget.style.background = d.bg}
+                      >
+                        <img src={member.img} alt={member.name} style={{
+                          width:  isLead ? "min(85px, 15vw)" : isVolunteer ? "min(44px, 10vw)" : "min(58px, 12vw)",
+                          height: isLead ? "min(85px, 15vw)" : isVolunteer ? "min(44px, 10vw)" : "min(58px, 12vw)",
+                          borderRadius: "50%",
+                          objectFit:    "cover",
+                          border:       `2px solid ${d.border}`,
+                          marginBottom: "12px",
+                          display:      "block",
+                        }} />
+                        <div className="team-card-name" style={{
+                          fontWeight: 600,
+                          fontSize:   isLead ? "16px" : isVolunteer ? "13px" : "14px",
+                          marginBottom: "3px",
+                          color: d.text,
+                        }}>{member.name}</div>
+                        <div className="team-card-role" style={{
+                          fontSize: "12px",
+                          color: d.accent,
+                          fontWeight: 500,
+                          marginBottom: "10px",
+                        }}>{member.role}</div>
+                        {!isVolunteer && member.quote && ( //remove !isVolunteer && to shoe volunteer quotes
+                          <div className="team-card-quote" style={{
+                            fontSize: "12px",
+                            color: d.textFaint,
+                            fontStyle: "italic",
+                            lineHeight: 1.5,
+                            marginBottom: "14px",
+                          }}>"{member.quote}"</div>
+                        )}
+                        <div style={{ display: "flex", gap: "10px" }}>
+                          {[
+                            { icon: <GithubIcon />,   href: member.github },
+                            { icon: <LinkedinIcon />, href: member.linkedin },
+                            { icon: <TwitterIcon />,  href: member.twitter },
+                          ].map((s, j) => (
+                            <a key={j} href={s.href} style={{ color: d.textFaint, transition: "color 0.15s", display: "flex" }}
+                              onMouseEnter={e => e.currentTarget.style.color = d.text}
+                              onMouseLeave={e => e.currentTarget.style.color = d.textFaint}
+                            >{s.icon}</a>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </section>
-
         <Divider d={d} />
 
         {/* ══════════════ JOIN US ══════════════ */}
@@ -523,7 +609,7 @@ export default function ClubPortfolio() {
                     <div style={{ fontSize: "14px", color: d.textMuted }}>We'll review your application and get back to you shortly.</div>
                   </div>
                 ) : (
-                    <form onSubmit={async e => {
+                    <form className="join-form" onSubmit={async e => {
                       e.preventDefault();
                       if(formLoading) return;
                       setFormLoading(true);
@@ -637,3 +723,5 @@ export default function ClubPortfolio() {
     </>
   );
 }
+
+
