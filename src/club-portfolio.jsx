@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import ProjectSite, { getRawUrl } from "./projectSite/project-site";
+
 // ─── PALETTE ─────────────────────────────────────────────────────────────────
 const ACCENT = "#008080";
 const ACCENT_HOVER = "#006363ff";
@@ -60,7 +62,7 @@ const CLUB = {
       link: "https://github.com/AppLabs-IIITK/",
     },
     completed: [
-      { name: "StudyPal", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&q=80", tags: ["Flutter", "ML"],      link: "https://github.com/AppLabs-IIITK"},
+      { name: "StudyPal", repo: "nihalnijuv496-wq/3-Body-Problem-Simulation", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&q=80", tags: ["Flutter", "ML"],      link: "https://github.com/AppLabs-IIITK"},
       { name: "GreenTrack", img: "https://images.unsplash.com/photo-1542601906897-ecd5abdd5273?w=300&q=80", tags: ["React", "Charts"],  link: "https://github.com/AppLabs-IIITK" },
       { name: "MealMate", img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=300&q=80", tags: ["iOS", "Swift"],       link: "https://github.com/AppLabs-IIITK"},
       { name: "DevBoard", img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&q=80", tags: ["Next.js"],            link: "https://github.com/AppLabs-IIITK" },
@@ -79,18 +81,14 @@ const CLUB = {
     ],
   },
   team: [
-  // Leads
   { name: "Aryan Mehta",  role: "President",     tier: "lead",    quote: "Build things that matter.", img: "https://i.pravatar.cc/150?img=11", github: "#", linkedin: "#", twitter: "#" },
   { name: "Priya Nair",   role: "VP Engineering", tier: "lead",    quote: "Ship fast, learn faster.", img: "https://i.pravatar.cc/150?img=47", github: "#", linkedin: "#", twitter: "#" },
-  // Sub-leads
   { name: "Rohan Das",    role: "Design Lead",    tier: "sublead", quote: "Design is how it works.", img: "https://i.pravatar.cc/150?img=12", github: "#", linkedin: "#", twitter: "#" },
   { name: "Sneha Iyer",   role: "Mobile Lead",    tier: "sublead", quote: "Every app starts with an idea.", img: "https://i.pravatar.cc/150?img=48", github: "#", linkedin: "#", twitter: "#" },
   { name: "Karan Patel",  role: "Web Lead",       tier: "sublead", quote: "The web is our playground.", img: "https://i.pravatar.cc/150?img=13", github: "#", linkedin: "#", twitter: "#" },
-  // Core
   { name: "Divya Sharma", role: "Events Head",    tier: "core",    quote: "Community is everything.", img: "https://i.pravatar.cc/150?img=49", github: "#", linkedin: "#", twitter: "#" },
   { name: "Mihir Joshi",  role: "Core Member",    tier: "core",    quote: "Always be building.", img: "https://i.pravatar.cc/150?img=14", github: "#", linkedin: "#", twitter: "#" },
   { name: "Tanvi Rao",    role: "Core Member",    tier: "core",    quote: "Code is poetry.", img: "https://i.pravatar.cc/150?img=50", github: "#", linkedin: "#", twitter: "#" },
-  // Volunteers
   { name: "Aditya Sen",   role: "Volunteer",      tier: "volunteer", quote: "Here to learn and contribute.", img: "https://i.pravatar.cc/150?img=15", github: "#", linkedin: "#", twitter: "#" },
   { name: "Meera Pillai", role: "Volunteer",      tier: "volunteer", quote: "Excited to be part of this.", img: "https://i.pravatar.cc/150?img=51", github: "#", linkedin: "#", twitter: "#" },
   { name: "Zaid Khan",    role: "Volunteer",      tier: "volunteer", quote: "Building my first app here.", img: "https://i.pravatar.cc/150?img=16", github: "#", linkedin: "#", twitter: "#" },
@@ -164,48 +162,105 @@ function ProjectCard({ item, d }) {
   );
 }
 
-/* function ScrollRow({ items, d }) {
+// ─── SCROLL ROW — navigates via hash when repo is present ────────────────────
+function ScrollRow({ items, d, enableFetch = false, onNavigate }) {
   return (
-    <div style={{ overflowX: "auto", paddingBottom: "6px", scrollbarWidth: "thin", scrollbarColor: `${d.border} transparent` }}>
-      <div style={{ display: "flex", gap: "14px", width: "max-content" }}>
-        {items.map((item, i) => (
-          <a
-            key={i}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <ProjectCard item={item} d={d} />
-          </a>
-        ))}
+    <div>
+      <div style={{ display: "flex", gap: "14px", overflowX: "auto", padding: "12px", margin: "-12px", scrollbarWidth: "none" }}>
+        {items.map((item, i) => {
+          const canNavigate = enableFetch && item.repo;
+          return (
+            <a
+              key={i}
+              href={canNavigate ? `#project/${encodeURIComponent(item.repo)}` : item.link}
+              target={canNavigate ? undefined : "_blank"}
+              rel={canNavigate ? undefined : "noopener noreferrer"}
+              style={{ textDecoration: "none", color: "inherit" }}
+              onClick={canNavigate ? (e) => {
+                e.preventDefault();
+                onNavigate(item);
+              } : undefined}
+            >
+              <ProjectCard item={item} d={d} />
+            </a>
+          );
+        })}
       </div>
-    </div>
-  );
-} */
-
-function ScrollRow({ items, d }) {
-  return (
-    <div style={{ display: "flex", gap: "14px", overflowX: "auto", padding: "12px", margin: "-12px", scrollbarWidth: "none" }}>
-      <style>{`.scroll-hide::-webkit-scrollbar { display: none; }`}</style>
-      {items.map((item, i) => (
-        <a 
-          key={i}
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none", color: "inherit" }}
-          >
-          <ProjectCard key={i} item={item} d={d} />
-        </a>
-        ))}
     </div>
   );
 }
 
-// ─── APP ──────────────────────────────────────────────────────────────────────
-export default function ClubPortfolio() {
+// ─── ROOT ROUTER ─────────────────────────────────────────────────────────────
+export default function App() {
   const [isDark, setIsDark] = useState(false);
+  // route: null = main site, { item, config } = project page
+  const [route, setRoute] = useState(null);
+  const [loadingItem, setLoadingItem] = useState(null);
+  const [loadError, setLoadError] = useState(null);
+
+  // Handle browser back button
+  useEffect(() => {
+    const onHashChange = () => {
+      if (!window.location.hash || window.location.hash === "#") {
+        setRoute(null);
+        setLoadError(null);
+      }
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const navigateToProject = async (item) => {
+    setLoadingItem(item.name);
+    setLoadError(null);
+    try {
+      const res = await fetch(getRawUrl(item.repo, item.branch, item.file));
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const config = await res.json();
+      window.history.pushState({}, "", `#project/${encodeURIComponent(item.repo)}`);
+      window.scrollTo(0, 0);
+      setRoute({ item, config });
+    } catch (err) {
+      setLoadError(`Could not load ${item.name}: ${err.message}`);
+    } finally {
+      setLoadingItem(null);
+    }
+  };
+
+  const navigateBack = () => {
+    window.history.back();
+    setRoute(null);
+    setLoadError(null);
+    // Restore scroll position to projects section
+    setTimeout(() => {
+      document.getElementById("projects-section")?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  };
+
+  if (route) {
+    return (
+      <ProjectSite
+        config={route.config}
+        isDark={isDark}
+        setIsDark={setIsDark}
+        onBack={navigateBack}
+      />
+    );
+  }
+
+  return (
+    <MainSite
+      isDark={isDark}
+      setIsDark={setIsDark}
+      onNavigateProject={navigateToProject}
+      loadingItem={loadingItem}
+      loadError={loadError}
+    />
+  );
+}
+
+// ─── MAIN SITE ────────────────────────────────────────────────────────────────
+function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError }) {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", branch: "", year: "", why: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -411,7 +466,7 @@ export default function ClubPortfolio() {
               backgroundColor: d.bg,
             }}>
               {CLUB.whatWeDo.map((item, i) => (
-                <div key={i} style={{ background: d.bg, padding: "34px 30px",  border: `1px solid ${d.border}`, transition: "background 0.15s" }}
+                <div key={i} style={{ background: d.bg, padding: "34px 30px", border: `1px solid ${d.border}`, transition: "background 0.15s" }}
                   onMouseEnter={e => e.currentTarget.style.background = d.bg2}
                   onMouseLeave={e => e.currentTarget.style.background = d.bg}
                 >
@@ -425,7 +480,7 @@ export default function ClubPortfolio() {
         </section>
 
         {/* ══════════════ PROJECTS ══════════════ */}
-        <div style={{ background: d.bg2 }}>
+        <div style={{ background: d.bg2 }} id="projects-section">
           <Divider d={d} />
           <section ref={refs.projects}>
             <div className="pad-sec" style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 48px" }}>
@@ -457,10 +512,29 @@ export default function ClubPortfolio() {
                 </div>
               </div>
 
+              {/* Loading overlay */}
+              {loadingItem && (
+                <div style={{
+                  display: "flex", alignItems: "center", gap: "10px",
+                  padding: "12px 18px", marginBottom: "20px",
+                  border: `1px solid ${d.border}`, borderRadius: "6px",
+                  background: d.bg, fontSize: "13px", color: d.textMuted,
+                }}>
+                  <span style={{ width: "12px", height: "12px", borderRadius: "50%", border: `2px solid ${d.accent}`, borderTopColor: "transparent", display: "inline-block", animation: "spin 0.7s linear infinite" }} />
+                  Loading {loadingItem}…
+                  <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+                </div>
+              )}
+              {loadError && (
+                <div style={{ padding: "10px 16px", marginBottom: "20px", border: `1px solid #fca5a5`, borderRadius: "6px", background: "#fef2f2", color: "#c00", fontSize: "13px" }}>
+                  ⚠ {loadError}
+                </div>
+              )}
+
               {/* Scrollable rows */}
               {[
-                { label: "Completed",        items: CLUB.projects.completed },
-                { label: "Work in Progress", items: CLUB.projects.wip },
+                { label: "Completed",        items: CLUB.projects.completed, enableFetch: true },
+                { label: "Work in Progress", items: CLUB.projects.wip,       enableFetch: true },
                 { label: "Events",           items: CLUB.projects.events },
               ].map(row => (
                 <div key={row.label} style={{ marginBottom: "48px" }}>
@@ -468,24 +542,29 @@ export default function ClubPortfolio() {
                     <h3 style={{ fontWeight: 600, fontSize: "15px", color: d.text }}>{row.label}</h3>
                     <span style={{ fontSize: "11px", color: d.textFaint, letterSpacing: "0.05em" }}>scroll →</span>
                   </div>
-                  <ScrollRow items={row.items} d={d} />
+                  <ScrollRow
+                    items={row.items}
+                    d={d}
+                    enableFetch={row.enableFetch}
+                    onNavigate={onNavigateProject}
+                  />
                 </div>
               ))}
             </div>
           </section>
           <Divider d={d} />
-        
         </div>
+
         {/* ══════════════ TEAM ══════════════ */}
         <section ref={refs.team}>
           <div className="pad-sec" style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 48px" }}>
             <SectionTitle label="The People" title="Our Team" d={d} />
 
             {[
-              { tier: "lead",      label: "Leads",        },
-              { tier: "sublead",   label: "Sub-Leads",    },
-              { tier: "core",      label: "Core Members", },
-              { tier: "volunteer", label: "Volunteers",   },
+              { tier: "lead",      label: "Leads" },
+              { tier: "sublead",   label: "Sub-Leads" },
+              { tier: "core",      label: "Core Members" },
+              { tier: "volunteer", label: "Volunteers" },
             ].map(({ tier, label }) => {
               const members = CLUB.team.filter(m => m.tier === tier);
               const isLead      = tier === "lead";
@@ -497,13 +576,10 @@ export default function ClubPortfolio() {
                   <div className="team-grid" style={{
                     display: "grid",
                     gridTemplateColumns: isLead
-                  ? "repeat(2, min(280px, 45vw))"
-                  : `repeat(auto-fit, ${isVolunteer ? "min(160px, 40vw)" : "min(200px, 45vw)"})`,
+                      ? "repeat(2, min(280px, 45vw))"
+                      : `repeat(auto-fit, ${isVolunteer ? "min(160px, 40vw)" : "min(200px, 45vw)"})`,
                     gap: "10px",
-                    background: d.border,
-                    overflow: "hidden",
                     backgroundColor: d.bg,
-                    
                   }}>
                     {members.map((member, i) => (
                       <div key={i}
@@ -513,13 +589,9 @@ export default function ClubPortfolio() {
                           padding: isLead ? "28px" : isVolunteer ? "16px" : "22px",
                           transition: "background 0.15s",
                           aspectRatio: "1",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          textAlign: "center",
-                          justifyContent: "center",
+                          display: "flex", flexDirection: "column",
+                          alignItems: "center", textAlign: "center", justifyContent: "center",
                           overflow: "hidden",
-
                         }}
                         onMouseEnter={e => e.currentTarget.style.background = d.bg2}
                         onMouseLeave={e => e.currentTarget.style.background = d.bg}
@@ -527,32 +599,14 @@ export default function ClubPortfolio() {
                         <img src={member.img} alt={member.name} style={{
                           width:  isLead ? "min(85px, 15vw)" : isVolunteer ? "min(44px, 10vw)" : "min(58px, 12vw)",
                           height: isLead ? "min(85px, 15vw)" : isVolunteer ? "min(44px, 10vw)" : "min(58px, 12vw)",
-                          borderRadius: "50%",
-                          objectFit:    "cover",
-                          border:       `2px solid ${d.border}`,
-                          marginBottom: "12px",
-                          display:      "block",
+                          borderRadius: "50%", objectFit: "cover",
+                          border: `2px solid ${d.border}`,
+                          marginBottom: "12px", display: "block",
                         }} />
-                        <div className="team-card-name" style={{
-                          fontWeight: 600,
-                          fontSize:   isLead ? "16px" : isVolunteer ? "13px" : "14px",
-                          marginBottom: "3px",
-                          color: d.text,
-                        }}>{member.name}</div>
-                        <div className="team-card-role" style={{
-                          fontSize: "12px",
-                          color: d.accent,
-                          fontWeight: 500,
-                          marginBottom: "10px",
-                        }}>{member.role}</div>
-                        {!isVolunteer && member.quote && ( //remove !isVolunteer && to shoe volunteer quotes
-                          <div className="team-card-quote" style={{
-                            fontSize: "12px",
-                            color: d.textFaint,
-                            fontStyle: "italic",
-                            lineHeight: 1.5,
-                            marginBottom: "14px",
-                          }}>"{member.quote}"</div>
+                        <div className="team-card-name" style={{ fontWeight: 600, fontSize: isLead ? "16px" : isVolunteer ? "13px" : "14px", marginBottom: "3px", color: d.text }}>{member.name}</div>
+                        <div className="team-card-role" style={{ fontSize: "12px", color: d.accent, fontWeight: 500, marginBottom: "10px" }}>{member.role}</div>
+                        {!isVolunteer && member.quote && (
+                          <div className="team-card-quote" style={{ fontSize: "12px", color: d.textFaint, fontStyle: "italic", lineHeight: 1.5, marginBottom: "14px" }}>"{member.quote}"</div>
                         )}
                         <div style={{ display: "flex", gap: "10px" }}>
                           {[
@@ -581,7 +635,6 @@ export default function ClubPortfolio() {
           <div className="pad-sec" style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 48px" }}>
             <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "80px", alignItems: "start" }}>
 
-              {/* Left */}
               <div>
                 <SectionTitle label="Applications" title="Join AppLabs" d={d} />
                 <p style={{ fontSize: "14px", lineHeight: 1.8, color: d.textMuted, marginBottom: "36px" }}>
@@ -600,7 +653,6 @@ export default function ClubPortfolio() {
                 ))}
               </div>
 
-              {/* Form */}
               <div>
                 {formSubmitted ? (
                   <div style={{ padding: "52px 36px", textAlign: "center", border: `1px solid ${d.border}`, borderRadius: "8px" }}>
@@ -609,27 +661,26 @@ export default function ClubPortfolio() {
                     <div style={{ fontSize: "14px", color: d.textMuted }}>We'll review your application and get back to you shortly.</div>
                   </div>
                 ) : (
-                    <form className="join-form" onSubmit={async e => {
-                      e.preventDefault();
-                      if(formLoading) return;
-                      setFormLoading(true);
-                      setFormError("");
-                      try {
-                        await fetch(CLUB.scriptUrl, {
-                          method: "POST",
-                          mode: "no-cors",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({ ...formData, timestamp: new Date().toISOString() }),
-                        });
-                        setFormSubmitted(true);
-                      } catch (err) {
-                        setFormError("Something went wrong. Please try again.");
-                      } finally {
-                        setFormLoading(false);
-                      }
-                    }}
-                      style={{ border: `1px solid ${d.border}`, borderRadius: "8px", padding: "36px", background: d.card }}
-                    >
+                  <form className="join-form" onSubmit={async e => {
+                    e.preventDefault();
+                    if (formLoading) return;
+                    setFormLoading(true);
+                    setFormError("");
+                    try {
+                      await fetch(CLUB.scriptUrl, {
+                        method: "POST", mode: "no-cors",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ ...formData, timestamp: new Date().toISOString() }),
+                      });
+                      setFormSubmitted(true);
+                    } catch (err) {
+                      setFormError("Something went wrong. Please try again.");
+                    } finally {
+                      setFormLoading(false);
+                    }
+                  }}
+                    style={{ border: `1px solid ${d.border}`, borderRadius: "8px", padding: "36px", background: d.card }}
+                  >
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "14px" }}>
                       {[{ label: "Full Name", key: "name", placeholder: "Aryan Mehta" }, { label: "Email", key: "email", placeholder: "aryanmehta2025BCS0001@iiitkottayam.ac.in" }].map(f => (
                         <div key={f.key}>
@@ -673,7 +724,7 @@ export default function ClubPortfolio() {
                     }}
                       onMouseEnter={e => e.currentTarget.style.background = ACCENT_HOVER}
                       onMouseLeave={e => e.currentTarget.style.background = d.accent}
-                    >{formLoading ? "Submitting..." :<>Submit Application<ArrowIcon /></>}</button>
+                    >{formLoading ? "Submitting..." : <>Submit Application <ArrowIcon /></>}</button>
                   </form>
                 )}
               </div>
@@ -715,7 +766,7 @@ export default function ClubPortfolio() {
           </div>
           <div style={{ borderTop: `1px solid ${d.border}`, paddingTop: "18px", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "8px" }}>
             <span style={{ fontSize: "12px", color: d.textFaint }}>© 2025 {CLUB.name}. All rights reserved.</span>
-            <span style={{ fontSize: "12px", color: d.textFaint }}>Built by the AppLabs, the app development club under Beta Labs, team</span>
+            <span style={{ fontSize: "12px", color: d.textFaint }}>Built by the AppLabs team</span>
           </div>
         </footer>
 
@@ -723,5 +774,3 @@ export default function ClubPortfolio() {
     </>
   );
 }
-
-
