@@ -98,7 +98,7 @@ const CLUB = {
 ],
   scriptUrl: "https://script.google.com/macros/s/AKfycbzh3rd1MlFs9LmQ9b1Ny8yleboDsEsGxrjc-Ws_OrOsSzp_05exF5PM2eXXksRpyIWlcQ/exec",
   contact: {
-    email: "applabs@iiitkottayam.ac.in",
+    email: "applabsiiitk@gmail.com",
     instagram: "https://www.instagram.com/betalabs_app.dev/",
     github: "https://github.com/AppLabs-IIITK",
     address: "Room 204, CS Block, IIIT, Pala, Kottayam, Kerala, India",
@@ -164,9 +164,25 @@ function ProjectCard({ item, d }) {
 
 // ─── SCROLL ROW — navigates via hash when repo is present ────────────────────
 function ScrollRow({ items, d, enableFetch = false, onNavigate }) {
+  const rowRef = useRef(null);
+
+  const handleWheel = (e) => {
+    if (!rowRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = rowRef.current;
+    const atLeft  = scrollLeft === 0 && e.deltaY < 0;
+    const atRight = scrollLeft + clientWidth >= scrollWidth - 1 && e.deltaY > 0;
+    if (atLeft || atRight) return;
+    e.preventDefault();
+    rowRef.current.scrollLeft += e.deltaY;
+  };
+
   return (
     <div>
-      <div style={{ display: "flex", gap: "14px", overflowX: "auto", padding: "12px", margin: "-12px", scrollbarWidth: "none" }}>
+      <div
+        ref={rowRef}
+        onWheel={handleWheel}
+        style={{ display: "flex", gap: "14px", overflowX: "auto", padding: "12px", margin: "-12px", scrollbarWidth: "none" }}
+      >
         {items.map((item, i) => {
           const canNavigate = enableFetch && item.repo;
           return (
@@ -189,6 +205,7 @@ function ScrollRow({ items, d, enableFetch = false, onNavigate }) {
     </div>
   );
 }
+
 
 // ─── ROOT ROUTER ─────────────────────────────────────────────────────────────
 export default function App() {
@@ -231,7 +248,6 @@ export default function App() {
     window.history.back();
     setRoute(null);
     setLoadError(null);
-    // Restore scroll position to projects section
     setTimeout(() => {
       document.getElementById("projects-section")?.scrollIntoView({ behavior: "smooth" });
     }, 50);
@@ -560,75 +576,89 @@ function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError
           <div className="pad-sec" style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 48px" }}>
             <SectionTitle label="The People" title="Our Team" d={d} />
 
-            {[
-              { tier: "lead",      label: "Leads" },
-              { tier: "sublead",   label: "Sub-Leads" },
-              { tier: "core",      label: "Core Members" },
-              { tier: "volunteer", label: "Volunteers" },
-            ].map(({ tier, label }) => {
-              const members = CLUB.team.filter(m => m.tier === tier);
-              const isLead      = tier === "lead";
-              const isVolunteer = tier === "volunteer";
+            {/* 2×2 macro grid: [Leads | Sub-Leads] / [Core | Volunteers] */}
+            <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0px", border: `1px solid ${d.border}` }}>
 
-              return (
-                <div key={tier} style={{ marginBottom: "52px" }}>
-                  <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: d.textFaint, marginBottom: "20px" }}>{label}</div>
-                  <div className="team-grid" style={{
-                    display: "grid",
-                    gridTemplateColumns: isLead
-                      ? "repeat(2, min(280px, 45vw))"
-                      : `repeat(auto-fit, ${isVolunteer ? "min(160px, 40vw)" : "min(200px, 45vw)"})`,
-                    gap: "10px",
-                    backgroundColor: d.bg,
+              {[
+                { tier: "lead",      label: "Leads",        imgSize: "min(52px, 9vw)", fontSize: "13px", padding: "24px", showQuote: true  },
+                { tier: "sublead",   label: "Sub-Leads",    imgSize: "min(52px, 9vw)", fontSize: "13px", padding: "20px", showQuote: true  },
+                { tier: "core",      label: "Core Members", imgSize: "min(52px, 9vw)",  fontSize: "13px", padding: "18px", showQuote: true },
+                { tier: "volunteer", label: "Volunteers",   imgSize: "min(52px, 9vw)",  fontSize: "13px", padding: "14px", showQuote: true },
+              ].map(({ tier, label, imgSize, fontSize, padding, showQuote }, quadrantIdx) => {
+                const members = CLUB.team.filter(m => m.tier === tier);
+                const isLeftCol = quadrantIdx % 2 === 0;
+                const isTopRow  = quadrantIdx < 2;
+
+                return (
+                  <div key={tier} style={{
+                    borderRight:  isLeftCol ? `1px solid ${d.border}` : "none",
+                    borderBottom: isTopRow  ? `1px solid ${d.border}` : "none",
                   }}>
-                    {members.map((member, i) => (
-                      <div key={i}
-                        style={{
-                          background: d.bg,
-                          border: `1px solid ${d.border}`,
-                          padding: isLead ? "28px" : isVolunteer ? "16px" : "22px",
-                          transition: "background 0.15s",
-                          aspectRatio: "1",
-                          display: "flex", flexDirection: "column",
-                          alignItems: "center", textAlign: "center", justifyContent: "center",
-                          overflow: "hidden",
-                        }}
-                        onMouseEnter={e => e.currentTarget.style.background = d.bg2}
-                        onMouseLeave={e => e.currentTarget.style.background = d.bg}
-                      >
-                        <img src={member.img} alt={member.name} style={{
-                          width:  isLead ? "min(85px, 15vw)" : isVolunteer ? "min(44px, 10vw)" : "min(58px, 12vw)",
-                          height: isLead ? "min(85px, 15vw)" : isVolunteer ? "min(44px, 10vw)" : "min(58px, 12vw)",
-                          borderRadius: "50%", objectFit: "cover",
-                          border: `2px solid ${d.border}`,
-                          marginBottom: "12px", display: "block",
-                        }} />
-                        <div className="team-card-name" style={{ fontWeight: 600, fontSize: isLead ? "16px" : isVolunteer ? "13px" : "14px", marginBottom: "3px", color: d.text }}>{member.name}</div>
-                        <div className="team-card-role" style={{ fontSize: "12px", color: d.accent, fontWeight: 500, marginBottom: "10px" }}>{member.role}</div>
-                        {!isVolunteer && member.quote && (
-                          <div className="team-card-quote" style={{ fontSize: "12px", color: d.textFaint, fontStyle: "italic", lineHeight: 1.5, marginBottom: "14px" }}>"{member.quote}"</div>
-                        )}
-                        <div style={{ display: "flex", gap: "10px" }}>
-                          {[
-                            { icon: <GithubIcon />,   href: member.github },
-                            { icon: <LinkedinIcon />, href: member.linkedin },
-                            { icon: <TwitterIcon />,  href: member.twitter },
-                          ].map((s, j) => (
-                            <a key={j} href={s.href} style={{ color: d.textFaint, transition: "color 0.15s", display: "flex" }}
-                              onMouseEnter={e => e.currentTarget.style.color = d.text}
-                              onMouseLeave={e => e.currentTarget.style.color = d.textFaint}
-                            >{s.icon}</a>
-                          ))}
+                    {/* Quadrant header */}
+                    <div style={{
+                      padding: "14px 20px",
+                      borderBottom: `1px solid ${d.border}`,
+                      fontSize: "11px", fontWeight: 600,
+                      letterSpacing: "0.12em", textTransform: "uppercase",
+                      color: d.textFaint, background: d.bg2,
+                    }}>{label}</div>
+
+                    {/* Member grid inside each quadrant */}
+                    <div style={{
+                      display: "grid",
+                    gridTemplateColumns: `repeat(auto-fill, minmax(130px, 1fr))`,
+                      gap: "0px",
+                      alignItems: "start",
+                    }}>
+                      {members.map((member, i) => (
+                        <div key={i}
+                           style={{
+                              background: d.bg,
+                              borderRight: `1px solid ${d.border}`,
+                              borderBottom: `1px solid ${d.border}`,
+                              padding,
+                              transition: "background 0.15s",
+                              display: "flex", flexDirection: "column",
+                              alignItems: "center", textAlign: "center", justifyContent: "center",
+                              height: "200px",  // replaces aspectRatio: "1"
+                            }}
+                          onMouseEnter={e => e.currentTarget.style.background = d.bg2}
+                          onMouseLeave={e => e.currentTarget.style.background = d.bg}
+                        >
+                          <img src={member.img} alt={member.name} style={{
+                            width: imgSize, height: imgSize,
+                            borderRadius: "50%", objectFit: "cover",
+                            border: `2px solid ${d.border}`,
+                            marginBottom: "10px", display: "block", flexShrink: 0,
+                          }} />
+                          <div style={{ fontWeight: 600, fontSize, marginBottom: "3px", color: d.text, lineHeight: 1.3 }}>{member.name}</div>
+                          <div style={{ fontSize: "11px", color: d.accent, fontWeight: 500, marginBottom: showQuote ? "8px" : "10px" }}>{member.role}</div>
+                          {showQuote && member.quote && (
+                            <div className="team-card-quote" style={{ fontSize: "11px", color: d.textFaint, fontStyle: "italic", lineHeight: 1.5, marginBottom: "10px" }}>"{member.quote}"</div>
+                          )}
+                          <div style={{ display: "flex", gap: "8px" }}>
+                            {[
+                              { icon: <GithubIcon />,   href: member.github },
+                              { icon: <LinkedinIcon />, href: member.linkedin },
+                              { icon: <TwitterIcon />,  href: member.twitter },
+                            ].map((s, j) => (
+                              <a key={j} href={s.href} style={{ color: d.textFaint, transition: "color 0.15s", display: "flex" }}
+                                onMouseEnter={e => e.currentTarget.style.color = d.text}
+                                onMouseLeave={e => e.currentTarget.style.color = d.textFaint}
+                              >{s.icon}</a>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+
+            </div>
           </div>
         </section>
-        <Divider d={d} />
+<Divider d={d} />
 
         {/* ══════════════ JOIN US ══════════════ */}
         <section ref={refs.join}>
