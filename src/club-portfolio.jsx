@@ -41,7 +41,7 @@ const CLUB = {
   about:
     "AppLabs, the app development club under Beta Labs, is a student-run community of builders, designers, and dreamers passionate about crafting mobile and web applications. We collaborate, ship real products, and grow together — from zero-to-one and beyond.",
   history:
-    "Founded in 2019 by a handful of CS students frustrated that theory never met practice, AppLabs has grown from a few members in a dorm room to active builders across departments. We've shipped x apps, won y hackathons, and sent alumni to top tech companies.",
+    "Founded in 2019 by a handful of CS students frustrated that theory never met practice, AppLabs has grown from a few members in a dorm room to active builders across departments. We've shipped x apps, held y Hands-On Sessions, and sent alumni to top tech companies.",
   historyImages: [
     "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
     "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80",
@@ -50,7 +50,7 @@ const CLUB = {
   whatWeDo: [
     { icon: "📱", title: "Mobile Apps", desc: "iOS & Android with React Native and Flutter" },
     { icon: "🌐", title: "Web Apps", desc: "Full-stack web applications and SaaS products" },
-    { icon: "🏆", title: "Hackathons", desc: "Compete and win at regional & national events" },
+    { icon: "🏆", title: "Hands-On Sessions", desc: "Compete and win at regional & national events" },
     { icon: "🎓", title: "Workshops", desc: "Weekly sessions on cutting-edge tech stacks" },
   ],
   projects: {
@@ -101,7 +101,8 @@ const CLUB = {
     email: "applabsiiitk@gmail.com",
     instagram: "https://www.instagram.com/betalabs_app.dev/",
     github: "https://github.com/AppLabs-IIITK",
-    address: "Room 204, CS Block, IIIT, Pala, Kottayam, Kerala, India",
+    discord: "https://discord.gg/",
+    address: "Indian Institute of Information Technology Kottayam, Valavoor.P.O, Pala, Kottayam - 686635, Kerala, India ",
   },
 };
 
@@ -436,7 +437,7 @@ function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError
               {[
                 { num: "n+", label: "Active Members" },
                 { num: "x",  label: "Apps Shipped" },
-                { num: "y",  label: "Hackathon Wins" },
+                { num: "y",  label: "Hands-On Sessions" },
                 { num: "z",  label: "Years Running" },
               ].map((s, i) => (
                 <div key={i} style={{
@@ -781,7 +782,7 @@ function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError
             <div>
               <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: d.textFaint, marginBottom: "12px" }}>Links</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
-                {[{ label: "GitHub", href: CLUB.contact.github }, { label: "Instagram", href: CLUB.contact.instagram }].map(l => (
+                {[{ label: "GitHub", href: CLUB.contact.github }, { label: "Instagram", href: CLUB.contact.instagram }, { label: "Discord", href: CLUB.contact.discord }].map(l => (
                   <a key={l.label} href={l.href} style={{ fontSize: "13px", color: d.textMuted, textDecoration: "none", transition: "color 0.15s" }}
                     onMouseEnter={e => e.currentTarget.style.color = d.accent}
                     onMouseLeave={e => e.currentTarget.style.color = d.textMuted}
