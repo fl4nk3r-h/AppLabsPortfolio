@@ -50,7 +50,7 @@ const CLUB = {
   whatWeDo: [
     { icon: "📱", title: "Mobile Apps", desc: "iOS & Android with React Native and Flutter" },
     { icon: "🌐", title: "Web Apps", desc: "Full-stack web applications and SaaS products" },
-    { icon: "🏆", title: "Hands-On Sessions", desc: "Compete and win at regional & national events" },
+    { icon: "🏆", title: "Hands-On Sessions", desc: "Direct, interactive coding sessions" },
     { icon: "🎓", title: "Workshops", desc: "Weekly sessions on cutting-edge tech stacks" },
   ],
   projects: {
@@ -81,22 +81,23 @@ const CLUB = {
     ],
   },
   team: [
-  { name: "Aryan Mehta",  role: "President",     tier: "lead",    quote: "Build things that matter.", img: "https://i.pravatar.cc/150?img=11", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Priya Nair",   role: "VP Engineering", tier: "lead",    quote: "Ship fast, learn faster.", img: "https://i.pravatar.cc/150?img=47", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Rohan Das",    role: "Design Lead",    tier: "sublead", quote: "Design is how it works.", img: "https://i.pravatar.cc/150?img=12", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Sneha Iyer",   role: "Mobile Lead",    tier: "sublead", quote: "Every app starts with an idea.", img: "https://i.pravatar.cc/150?img=48", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Karan Patel",  role: "Web Lead",       tier: "sublead", quote: "The web is our playground.", img: "https://i.pravatar.cc/150?img=13", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Divya Sharma", role: "Events Head",    tier: "core",    quote: "Community is everything.", img: "https://i.pravatar.cc/150?img=49", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Mihir Joshi",  role: "Core Member",    tier: "core",    quote: "Always be building.", img: "https://i.pravatar.cc/150?img=14", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Tanvi Rao",    role: "Core Member",    tier: "core",    quote: "Code is poetry.", img: "https://i.pravatar.cc/150?img=50", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Aditya Sen",   role: "Volunteer",      tier: "volunteer", quote: "Here to learn and contribute.", img: "https://i.pravatar.cc/150?img=15", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Meera Pillai", role: "Volunteer",      tier: "volunteer", quote: "Excited to be part of this.", img: "https://i.pravatar.cc/150?img=51", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Zaid Khan",    role: "Volunteer",      tier: "volunteer", quote: "Building my first app here.", img: "https://i.pravatar.cc/150?img=16", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Nisha Verma",  role: "Volunteer",      tier: "volunteer", quote: "Design thinking advocate.", img: "https://i.pravatar.cc/150?img=52", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Ravi Teja",    role: "Volunteer",      tier: "volunteer", quote: "Turning coffee into code.", img: "https://i.pravatar.cc/150?img=17", github: "#", linkedin: "#", twitter: "#" },
-  { name: "Pooja Menon",  role: "Volunteer",      tier: "volunteer", quote: "Every commit counts.", img: "https://i.pravatar.cc/150?img=53", github: "#", linkedin: "#", twitter: "#" },
+  { name: "Aryan Mehta",  role: "President",     tier: "lead",    quote: "Build things that matter.", img: "https://i.pravatar.cc/150?img=11", github: "#", linkedin: "#", portfolio: "#" },
+  { name: "Priya Nair",   role: "VP Engineering", tier: "lead",    quote: "Ship fast, learn faster.", img: "https://i.pravatar.cc/150?img=47", github: "#", linkedin: "#" },
+  { name: "Rohan Das",    role: "Design Lead",    tier: "sublead", quote: "Design is how it works.", img: "https://i.pravatar.cc/150?img=12", github: "#", linkedin: "#", portfolio: "#" },
+  { name: "Sneha Iyer",   role: "Mobile Lead",    tier: "sublead", quote: "Every app starts with an idea.", img: "https://i.pravatar.cc/150?img=48", github: "#", linkedin: "#" },
+  { name: "Karan Patel",  role: "Web Lead",       tier: "sublead", quote: "The web is our playground.", img: "https://i.pravatar.cc/150?img=13", github: "#", linkedin: "#", portfolio: "#" },
+  { name: "Divya Sharma", role: "Events Head",    tier: "core",    quote: "Community is everything.", img: "https://i.pravatar.cc/150?img=49", github: "#", linkedin: "#" },
+  { name: "Mihir Joshi",  role: "Core Member",    tier: "core",    quote: "Always be building.", img: "https://i.pravatar.cc/150?img=14", github: "#", linkedin: "#", portfolio: "#" },
+  { name: "Tanvi Rao",    role: "Core Member",    tier: "core",    quote: "Code is poetry.", img: "https://i.pravatar.cc/150?img=50", github: "#", linkedin: "#" },
+  { name: "Aditya Sen",   role: "Volunteer",      tier: "volunteer", quote: "Here to learn and contribute.", img: "https://i.pravatar.cc/150?img=15", github: "#", linkedin: "#" },
+  { name: "Meera Pillai", role: "Volunteer",      tier: "volunteer", quote: "Excited to be part of this.", img: "https://i.pravatar.cc/150?img=51", github: "#", linkedin: "#", portfolio: "#" },
+  { name: "Zaid Khan",    role: "Volunteer",      tier: "volunteer", quote: "Building my first app here.", img: "https://i.pravatar.cc/150?img=16", github: "#", linkedin: "#" },
+  { name: "Nisha Verma",  role: "Volunteer",      tier: "volunteer", quote: "Design thinking advocate.", img: "https://i.pravatar.cc/150?img=52", github: "#", linkedin: "#" },
+  { name: "Ravi Teja",    role: "Volunteer",      tier: "volunteer", quote: "Turning coffee into code.", img: "https://i.pravatar.cc/150?img=17", github: "#", linkedin: "#", portfolio: "#" },
+  { name: "Pooja Menon",  role: "Volunteer",      tier: "volunteer", quote: "Every commit counts.", img: "https://i.pravatar.cc/150?img=53", github: "#", linkedin: "#" },
 ],
-  scriptUrl: "https://script.google.com/macros/s/AKfycbzh3rd1MlFs9LmQ9b1Ny8yleboDsEsGxrjc-Ws_OrOsSzp_05exF5PM2eXXksRpyIWlcQ/exec",
+  scriptUrlJoin: "https://script.google.com/macros/s/AKfycbzh3rd1MlFs9LmQ9b1Ny8yleboDsEsGxrjc-Ws_OrOsSzp_05exF5PM2eXXksRpyIWlcQ/exec",
+  scriptUrlIdea: "https://script.google.com/macros/s/AKfycbwZAvkHpmBIlItRHdWLlcy1dKiqMBNHLGD6vigTyZebROD9aP_Bx6MCph5PCWVwofsR7w/exec",
   contact: {
     email: "applabsiiitk@gmail.com",
     instagram: "https://www.instagram.com/betalabs_app.dev/",
@@ -109,8 +110,7 @@ const CLUB = {
 // ─── ICONS ────────────────────────────────────────────────────────────────────
 const GithubIcon   = () => <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>;
 const LinkedinIcon = () => <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>;
-const TwitterIcon  = () => <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>;
-const SunIcon  = () => <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
+const PortfolioIcon = () => <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;const SunIcon  = () => <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
 const MoonIcon = () => <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
 const MenuIcon = () => <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>;
 const CloseIcon = () => <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
@@ -283,10 +283,16 @@ function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
   const [formError, setFormError] = useState("");
+  const [activeTab, setActiveTab] = useState("apply");
+  const [ideaData, setIdeaData] = useState({ name: "", email: "", title: "", description: "", tech: "" });
+  const [ideaSubmitted, setIdeaSubmitted] = useState(false);
+  const [ideaLoading, setIdeaLoading] = useState(false);
+  const [ideaError, setIdeaError] = useState("");
 
   const d = isDark ? dark : light;
 
   const refs = { home: useRef(null), projects: useRef(null), team: useRef(null), join: useRef(null) };
+  const joinScrollRef = useRef(null);
   const scrollTo = key => { refs[key]?.current?.scrollIntoView({ behavior: "smooth" }); setMobileMenu(false); };
 
   const NAV = [{ label: "Home", key: "home" }, { label: "Projects", key: "projects" }, { label: "Team", key: "team" }, { label: "Join Us", key: "join" }];
@@ -639,10 +645,10 @@ function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError
                           )}
                           <div style={{ display: "flex", gap: "8px" }}>
                             {[
-                              { icon: <GithubIcon />,   href: member.github },
-                              { icon: <LinkedinIcon />, href: member.linkedin },
-                              { icon: <TwitterIcon />,  href: member.twitter },
-                            ].map((s, j) => (
+                              { icon: <GithubIcon />,    href: member.github },
+                              { icon: <LinkedinIcon />,  href: member.linkedin },
+                              { icon: <PortfolioIcon />, href: member.portfolio },
+                            ].filter(s => s.href).map((s, j) => (
                               <a key={j} href={s.href} style={{ color: d.textFaint, transition: "color 0.15s", display: "flex" }}
                                 onMouseEnter={e => e.currentTarget.style.color = d.text}
                                 onMouseLeave={e => e.currentTarget.style.color = d.textFaint}
@@ -664,106 +670,241 @@ function MainSite({ isDark, setIsDark, onNavigateProject, loadingItem, loadError
         {/* ══════════════ JOIN US ══════════════ */}
         <section ref={refs.join}>
           <div className="pad-sec" style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 48px" }}>
-            <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "80px", alignItems: "start" }}>
 
-              <div>
-                <SectionTitle label="Applications" title="Join AppLabs" d={d} />
-                <p style={{ fontSize: "14px", lineHeight: 1.8, color: d.textMuted, marginBottom: "36px" }}>
-                  We recruit every semester. Whether you're a developer, designer, or someone who just wants to build — there's a place for you here.
-                </p>
-                {[
-                  { step: "01", text: "Fill out the application" },
-                  { step: "02", text: "We review within one week" },
-                  { step: "03", text: "Short intro call with the team" },
-                  { step: "04", text: "Welcome to AppLabs" },
-                ].map(s => (
-                  <div key={s.step} style={{ display: "flex", gap: "16px", marginBottom: "18px", alignItems: "flex-start" }}>
-                    <span style={{ fontSize: "11px", fontWeight: 700, color: d.accent, minWidth: "22px", paddingTop: "2px", letterSpacing: "0.05em" }}>{s.step}</span>
-                    <span style={{ fontSize: "14px", color: d.textMuted, lineHeight: 1.6 }}>{s.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div>
-                {formSubmitted ? (
-                  <div style={{ padding: "52px 36px", textAlign: "center", border: `1px solid ${d.border}`, borderRadius: "8px" }}>
-                    <div style={{ fontSize: "36px", marginBottom: "14px" }}>🎉</div>
-                    <div style={{ fontWeight: 700, fontSize: "1.2rem", marginBottom: "8px", color: d.text }}>Application Sent!</div>
-                    <div style={{ fontSize: "14px", color: d.textMuted }}>We'll review your application and get back to you shortly.</div>
-                  </div>
-                ) : (
-                  <form className="join-form" onSubmit={async e => {
-                    e.preventDefault();
-                    if (formLoading) return;
-                    setFormLoading(true);
-                    setFormError("");
-                    try {
-                      await fetch(CLUB.scriptUrl, {
-                        method: "POST", mode: "no-cors",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ ...formData, timestamp: new Date().toISOString() }),
-                      });
-                      setFormSubmitted(true);
-                    } catch (err) {
-                      setFormError("Something went wrong. Please try again.");
-                    } finally {
-                      setFormLoading(false);
-                    }
-                  }}
-                    style={{ border: `1px solid ${d.border}`, borderRadius: "8px", padding: "36px", background: d.card }}
-                  >
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "14px" }}>
-                      {[{ label: "Full Name", key: "name", placeholder: "Aryan Mehta" }, { label: "Email", key: "email", placeholder: "aryanmehta2025BCS0001@iiitkottayam.ac.in" }].map(f => (
-                        <div key={f.key}>
-                          <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>{f.label}</label>
-                          <input type="text" placeholder={f.placeholder} required value={formData[f.key]}
-                            onChange={e => setFormData({ ...formData, [f.key]: e.target.value })}
-                            style={inputStyle}
-                            onFocus={e => e.target.style.borderColor = d.accent}
-                            onBlur={e => e.target.style.borderColor = d.border}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "14px" }}>
-                      {[{ label: "Branch", key: "branch", placeholder: "Computer Science" }, { label: "Year", key: "year", placeholder: "1st Year" }].map(f => (
-                        <div key={f.key}>
-                          <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>{f.label}</label>
-                          <input type="text" placeholder={f.placeholder} required value={formData[f.key]}
-                            onChange={e => setFormData({ ...formData, [f.key]: e.target.value })}
-                            style={inputStyle}
-                            onFocus={e => e.target.style.borderColor = d.accent}
-                            onBlur={e => e.target.style.borderColor = d.border}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <div style={{ marginBottom: "22px" }}>
-                      <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Why do you want to join?</label>
-                      <textarea placeholder="Tell us about yourself and what you'd like to build..." rows={4} required
-                        value={formData.why} onChange={e => setFormData({ ...formData, why: e.target.value })}
-                        style={{ ...inputStyle, resize: "vertical" }}
-                        onFocus={e => e.target.style.borderColor = d.accent}
-                        onBlur={e => e.target.style.borderColor = d.border}
-                      />
-                    </div>
-                    <button type="submit" style={{
-                      width: "100%", padding: "12px", borderRadius: "6px", border: "none",
-                      background: d.accent, color: "#fff", fontSize: "14px", fontWeight: 600,
-                      cursor: "pointer", transition: "background 0.15s",
-                      display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
-                    }}
-                      onMouseEnter={e => e.currentTarget.style.background = ACCENT_HOVER}
-                      onMouseLeave={e => e.currentTarget.style.background = d.accent}
-                    >{formLoading ? "Submitting..." : <>Submit Application <ArrowIcon /></>}</button>
-                  </form>
-                )}
-              </div>
+            {/* Tab switcher — clicking also scrolls the panel */}
+            <div style={{ display: "flex", gap: "0px", marginBottom: "56px", border: `1px solid ${d.border}`, borderRadius: "8px", overflow: "hidden", width: "fit-content" }}>
+              {[
+                { key: "apply", label: "Join the Club" },
+                { key: "idea",  label: "Submit an Idea" },
+              ].map((tab, i) => (
+                <button key={tab.key} onClick={() => {
+                  setActiveTab(tab.key);
+                  joinScrollRef.current?.scrollTo({ left: i * joinScrollRef.current.offsetWidth, behavior: "smooth" });
+                }} style={{
+                  padding: "10px 24px", border: "none", cursor: "pointer",
+                  fontSize: "13px", fontWeight: 600,
+                  background: activeTab === tab.key ? d.accent : d.bg,
+                  color:      activeTab === tab.key ? "#fff"    : d.textMuted,
+                  transition: "background 0.15s, color 0.15s",
+                }}>{tab.label}</button>
+              ))}
             </div>
+
+            {/* Scroll container — two panels side by side, snaps between them */}
+            <div
+              ref={joinScrollRef}
+              onScroll={() => {
+                if (!joinScrollRef.current) return;
+                const { scrollLeft, offsetWidth } = joinScrollRef.current;
+                setActiveTab(scrollLeft < offsetWidth / 2 ? "apply" : "idea");
+              }}
+              style={{
+                display: "flex",
+                overflowX: "scroll",
+                scrollSnapType: "x mandatory",
+                scrollbarWidth: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              <style>{`.join-scroll::-webkit-scrollbar { display: none; }`}</style>
+
+              {/* ── PANEL 1: APPLICATION ── */}
+              <div className="join-scroll" style={{ minWidth: "100%", scrollSnapAlign: "start" }}>
+                <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "80px", alignItems: "start" }}>
+                  <div>
+                    <SectionTitle label="Applications" title="Join AppLabs" d={d} />
+                    <p style={{ fontSize: "14px", lineHeight: 1.8, color: d.textMuted, marginBottom: "36px" }}>
+                      We recruit every semester. Whether you're a developer, designer, or someone who just wants to build — there's a place for you here.
+                    </p>
+                    {[
+                      { step: "01", text: "Fill out the application" },
+                      { step: "02", text: "We review within one week" },
+                      { step: "03", text: "Short intro call with the team" },
+                      { step: "04", text: "Welcome to AppLabs" },
+                    ].map(s => (
+                      <div key={s.step} style={{ display: "flex", gap: "16px", marginBottom: "18px", alignItems: "flex-start" }}>
+                        <span style={{ fontSize: "11px", fontWeight: 700, color: d.accent, minWidth: "22px", paddingTop: "2px", letterSpacing: "0.05em" }}>{s.step}</span>
+                        <span style={{ fontSize: "14px", color: d.textMuted, lineHeight: 1.6 }}>{s.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    {formSubmitted ? (
+                      <div style={{ padding: "52px 36px", textAlign: "center", border: `1px solid ${d.border}`, borderRadius: "8px" }}>
+                        <div style={{ fontSize: "36px", marginBottom: "14px" }}>🎉</div>
+                        <div style={{ fontWeight: 700, fontSize: "1.2rem", marginBottom: "8px", color: d.text }}>Application Sent!</div>
+                        <div style={{ fontSize: "14px", color: d.textMuted }}>We'll review your application and get back to you shortly.</div>
+                      </div>
+                    ) : (
+                      <form className="join-form" onSubmit={async e => {
+                        e.preventDefault();
+                        if (formLoading) return;
+                        setFormLoading(true); setFormError("");
+                        try {
+                          await fetch(CLUB.scriptUrlJoin, {
+                            method: "POST", mode: "no-cors",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ formType: "application", ...formData, timestamp: new Date().toISOString() }),
+                          });
+                          setFormSubmitted(true);
+                        } catch { setFormError("Something went wrong. Please try again."); }
+                        finally { setFormLoading(false); }
+                      }} style={{ border: `1px solid ${d.border}`, borderRadius: "8px", padding: "36px", background: d.card }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "14px" }}>
+                          {[{ label: "Full Name", key: "name", placeholder: "Aryan Mehta" }, { label: "Email", key: "email", placeholder: "aryanmehta2025BCS0001@iiitkottayam.ac.in" }].map(f => (
+                            <div key={f.key}>
+                              <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>{f.label}</label>
+                              <input type="text" placeholder={f.placeholder} required value={formData[f.key]}
+                                onChange={e => setFormData({ ...formData, [f.key]: e.target.value })}
+                                style={inputStyle}
+                                onFocus={e => e.target.style.borderColor = d.accent}
+                                onBlur={e => e.target.style.borderColor = d.border}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "14px" }}>
+                          {[{ label: "Branch", key: "branch", placeholder: "Computer Science" }, { label: "Year", key: "year", placeholder: "1st Year" }].map(f => (
+                            <div key={f.key}>
+                              <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>{f.label}</label>
+                              <input type="text" placeholder={f.placeholder} required value={formData[f.key]}
+                                onChange={e => setFormData({ ...formData, [f.key]: e.target.value })}
+                                style={inputStyle}
+                                onFocus={e => e.target.style.borderColor = d.accent}
+                                onBlur={e => e.target.style.borderColor = d.border}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{ marginBottom: "22px" }}>
+                          <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Why do you want to join?</label>
+                          <textarea placeholder="Tell us about yourself and what you'd like to build..." rows={4} required
+                            value={formData.why} onChange={e => setFormData({ ...formData, why: e.target.value })}
+                            style={{ ...inputStyle, resize: "vertical" }}
+                            onFocus={e => e.target.style.borderColor = d.accent}
+                            onBlur={e => e.target.style.borderColor = d.border}
+                          />
+                        </div>
+                        {formError && <div style={{ fontSize: "13px", color: "#c00", marginBottom: "14px" }}>{formError}</div>}
+                        <button type="submit" style={{
+                          width: "100%", padding: "12px", borderRadius: "6px", border: "none",
+                          background: d.accent, color: "#fff", fontSize: "14px", fontWeight: 600,
+                          cursor: "pointer", transition: "background 0.15s",
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
+                        }}
+                          onMouseEnter={e => e.currentTarget.style.background = ACCENT_HOVER}
+                          onMouseLeave={e => e.currentTarget.style.background = d.accent}
+                        >{formLoading ? "Submitting..." : <>Submit Application <ArrowIcon /></>}</button>
+                      </form>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* ── PANEL 2: IDEA ── */}
+              <div style={{ minWidth: "100%", scrollSnapAlign: "start" }}>
+                <div className="two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: "80px", alignItems: "start" }}>
+                  <div>
+                    <SectionTitle label="Ideas" title="Got an Idea?" d={d} />
+                    <p style={{ fontSize: "14px", lineHeight: 1.8, color: d.textMuted, marginBottom: "36px" }}>
+                      Have an app idea you'd love to see built? Submit it — our team reviews every suggestion and the best ones get picked up as club projects.
+                    </p>
+                    {[
+                      { step: "01", text: "Describe your idea" },
+                      { step: "02", text: "We review all submissions" },
+                      { step: "03", text: "Top ideas get pitched to the club" },
+                      { step: "04", text: "A team forms and starts building" },
+                    ].map(s => (
+                      <div key={s.step} style={{ display: "flex", gap: "16px", marginBottom: "18px", alignItems: "flex-start" }}>
+                        <span style={{ fontSize: "11px", fontWeight: 700, color: d.accent, minWidth: "22px", paddingTop: "2px", letterSpacing: "0.05em" }}>{s.step}</span>
+                        <span style={{ fontSize: "14px", color: d.textMuted, lineHeight: 1.6 }}>{s.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    {ideaSubmitted ? (
+                      <div style={{ padding: "52px 36px", textAlign: "center", border: `1px solid ${d.border}`, borderRadius: "8px" }}>
+                        <div style={{ fontSize: "36px", marginBottom: "14px" }}>💡</div>
+                        <div style={{ fontWeight: 700, fontSize: "1.2rem", marginBottom: "8px", color: d.text }}>Idea Received!</div>
+                        <div style={{ fontSize: "14px", color: d.textMuted }}>Thanks for sharing. We'll look it over and reach out if we take it forward.</div>
+                      </div>
+                    ) : (
+                      <form className="join-form" onSubmit={async e => {
+                        e.preventDefault();
+                        if (ideaLoading) return;
+                        setIdeaLoading(true); setIdeaError("");
+                        try {
+                          await fetch(CLUB.scriptUrlIdea, {
+                            method: "POST", mode: "no-cors",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ formType: "idea", ...ideaData, timestamp: new Date().toISOString() }),
+                          });
+                          setIdeaSubmitted(true);
+                        } catch { setIdeaError("Something went wrong. Please try again."); }
+                        finally { setIdeaLoading(false); }
+                      }} style={{ border: `1px solid ${d.border}`, borderRadius: "8px", padding: "36px", background: d.card }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "14px" }}>
+                          {[{ label: "Your Name", key: "name", placeholder: "Aryan Mehta" }, { label: "Email", key: "email", placeholder: "aryanmehta2025BCS0001@iiitkottayam.ac.in" }].map(f => (
+                            <div key={f.key}>
+                              <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>{f.label}</label>
+                              <input type="text" placeholder={f.placeholder} required value={ideaData[f.key]}
+                                onChange={e => setIdeaData({ ...ideaData, [f.key]: e.target.value })}
+                                style={inputStyle}
+                                onFocus={e => e.target.style.borderColor = d.accent}
+                                onBlur={e => e.target.style.borderColor = d.border}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{ marginBottom: "14px" }}>
+                          <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Idea Title</label>
+                          <input type="text" placeholder="e.g. Campus Lost & Found App" required value={ideaData.title}
+                            onChange={e => setIdeaData({ ...ideaData, title: e.target.value })}
+                            style={inputStyle}
+                            onFocus={e => e.target.style.borderColor = d.accent}
+                            onBlur={e => e.target.style.borderColor = d.border}
+                          />
+                        </div>
+                        <div style={{ marginBottom: "14px" }}>
+                          <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Description</label>
+                          <textarea placeholder="What problem does it solve? Who would use it?" rows={3} required
+                            value={ideaData.description} onChange={e => setIdeaData({ ...ideaData, description: e.target.value })}
+                            style={{ ...inputStyle, resize: "vertical" }}
+                            onFocus={e => e.target.style.borderColor = d.accent}
+                            onBlur={e => e.target.style.borderColor = d.border}
+                          />
+                        </div>
+                        <div style={{ marginBottom: "22px" }}>
+                          <label style={{ display: "block", fontSize: "11px", fontWeight: 600, color: d.textMuted, marginBottom: "6px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Tech / Platform (optional)</label>
+                          <input type="text" placeholder="e.g. Mobile app, React Native, AI-powered..." value={ideaData.tech}
+                            onChange={e => setIdeaData({ ...ideaData, tech: e.target.value })}
+                            style={inputStyle}
+                            onFocus={e => e.target.style.borderColor = d.accent}
+                            onBlur={e => e.target.style.borderColor = d.border}
+                          />
+                        </div>
+                        {ideaError && <div style={{ fontSize: "13px", color: "#c00", marginBottom: "14px" }}>{ideaError}</div>}
+                        <button type="submit" style={{
+                          width: "100%", padding: "12px", borderRadius: "6px", border: "none",
+                          background: d.accent, color: "#fff", fontSize: "14px", fontWeight: 600,
+                          cursor: "pointer", transition: "background 0.15s",
+                          display: "flex", alignItems: "center", justifyContent: "center", gap: "7px",
+                        }}
+                          onMouseEnter={e => e.currentTarget.style.background = ACCENT_HOVER}
+                          onMouseLeave={e => e.currentTarget.style.background = d.accent}
+                        >{ideaLoading ? "Submitting..." : <>Submit Idea <ArrowIcon /></>}</button>
+                      </form>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+            </div>{/* end scroll container */}
           </div>
         </section>
 
         <Divider d={d} />
+
 
         {/* FOOTER */}
         <footer style={{ maxWidth: "1100px", margin: "0 auto", padding: "48px 48px 36px" }}>
