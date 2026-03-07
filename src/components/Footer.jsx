@@ -7,7 +7,7 @@ export default function Footer({ d }) {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))", gap: "36px", marginBottom: "36px" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
-            <div style={{ width: "26px", height: "26px", borderRadius: "5px", background: d.accent, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: 700, color: "#fff" }}>{CLUB.abbr}</div>
+            <img src={CLUB.clubLogo} alt="AppLabs" style={{ width: "30px", height: "30px", borderRadius:"6px"}} />
             <span style={{ fontWeight: 700, fontSize: "14px" }}>{CLUB.name}</span>
           </div>
           <div style={{ fontSize: "12px", color: d.textMuted, lineHeight: 1.6 }}>{CLUB.subname}<br />{CLUB.college}</div>

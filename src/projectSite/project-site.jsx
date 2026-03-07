@@ -9,7 +9,7 @@ const light = {
   text:      "#111111",
   textMuted: "#555555",
   textFaint: "#888888",
-  border:    "#e2e2e2",
+  border:    "#e2e2e2", 
   accent:    ACCENT,
   navBg:     "rgba(255,255,255,0.92)",
 };
@@ -88,9 +88,7 @@ function StatCard({ label, value, d }) {
   );
 }
 
-// ─── MAIN EXPORT ─────────────────────────────────────────────────────────────
-// isDark / setIsDark are lifted from App so theme is shared across pages.
-// Falls back to local state if used standalone.
+
 export default function ProjectSite({ config, onBack, isDark: isDarkProp, setIsDark: setIsDarkProp }) {
   const [isDarkLocal, setIsDarkLocal] = useState(false);
   const isDark    = isDarkProp    !== undefined ? isDarkProp    : isDarkLocal;

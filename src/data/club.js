@@ -3,6 +3,7 @@ const CLUB = {
   abbr: "AL",
   subname: "App Development Club",
   college: "Indian Institute of Information Technology, Kottayam",
+  clubLogo: "images/ClubLogo.svg",
   about:
     "AppLabs, the app development club under Beta Labs, is a student-run community of builders, designers, and dreamers passionate about crafting mobile and web applications. We collaborate, ship real products, and grow together — from zero-to-one and beyond.",
   history:

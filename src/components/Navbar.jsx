@@ -20,7 +20,7 @@ export default function Navbar({ d, isDark, setIsDark, mobileMenu, setMobileMenu
         padding: "0 48px", justifyContent: "space-between",
       }}>
         <button onClick={() => scrollTo("home")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "9px", padding: 0 }}>
-          <div style={{ width: "30px", height: "30px", borderRadius: "6px", background: d.accent, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 700, color: "#fff" }}>{CLUB.abbr}</div>
+          <img src={CLUB.clubLogo} alt="AppLabs" style={{ width: "30px", height: "30px", borderRadius:"6px"}} />
           <span style={{ fontWeight: 700, fontSize: "15px", color: d.text, letterSpacing: "-0.01em" }}>{CLUB.name}</span>
         </button>
 
