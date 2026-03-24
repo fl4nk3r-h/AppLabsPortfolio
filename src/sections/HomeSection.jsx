@@ -66,10 +66,10 @@ export default function HomeSection({ d, isDark, scrollTo, sectionRef }) {
       <div style={{ borderTop: `1px solid ${d.border}`, borderLeft: `1px solid ${d.border}` }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }} className="four-col">
           {[
-            { num: "n+", label: "Active Members" },
-            { num: "x",  label: "Apps Shipped" },
-            { num: "y",  label: "Hands-On Sessions" },
-            { num: "z",  label: "Years Running" },
+            { num: "10+", label: "Active Members" },
+            { num: "3",  label: "Apps Shipped" },
+            { num: "3",  label: "Hands-On Sessions" },
+            { num: "2",  label: "Years Running" },
           ].map((s, i) => (
             <div key={i} style={{ padding: "36px 32px", borderRight: `1px solid ${d.border}`, borderBottom: `1px solid ${d.border}` }}>
               <div style={{ fontWeight: 700, fontSize: "2rem", color: d.accent, letterSpacing: "-0.02em", marginBottom: "4px" }}>{s.num}</div>
